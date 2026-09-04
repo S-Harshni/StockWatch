@@ -1,8 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { POLL_INTERVAL_MS } from "./useWatchlistStore";
 
-const API_BASE_URL = "http://localhost:8000";
-
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
 /**
  * Data source for the "All Stocks" browse page -- the curated universe list
  * (GET /stocks), independent of the watchlist store. Same stale-response
