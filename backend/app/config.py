@@ -27,8 +27,7 @@ SYMBOL_PATTERN = re.compile(r"^[A-Z][A-Z0-9.\-]{0,9}$")
 
 # --- CORS -----------------------------------------------------------------
 # Local Vite dev server. Loosen/replace for a real deployment.
-CORS_ORIGINS = ["http://localhost:5173"]
-
+CORS_ORIGINS = os.getenv("CORS_ORIGINS", "http://localhost:5173").split(",")
 # --- Watchlist / universe ---------------------------------------------------
 # Seed list every new user starts with.
 DEFAULT_TICKERS = ["AAPL", "TSLA", "NVDA", "MSFT", "INFY"]
