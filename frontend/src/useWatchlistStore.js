@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef, useMemo } from "react";
 
-const API_BASE_URL = "http://localhost:8000";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
 // The backend's own market-data cache only refreshes every 30s (Finnhub
 // free-tier rate limits -- see POLL_INTERVAL_SECONDS in engine.py), but
 // polling *our own* API this often costs nothing external -- it's just
