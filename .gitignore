@@ -1,0 +1,22 @@
+# Secrets
+.env
+
+# Node / frontend
+node_modules/
+dist/
+.vite/
+
+# Python / backend
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Local runtime data
+pulsewatch.db
+pulsewatch.db-shm
+pulsewatch.db-wal
+
+# Editor / OS
+.DS_Store
+Thumbs.db
