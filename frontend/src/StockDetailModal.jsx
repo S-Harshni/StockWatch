@@ -4,7 +4,7 @@ import Sparkline from "./Sparkline";
 import { CloseIcon, PlusIcon, TrashIcon, ExternalLinkIcon } from "./icons";
 import { deltaTone, formatDeltaBadge, formatWhen, DELTA_BADGE_CLASSES } from "./format";
 
-const API_BASE_URL = "http://localhost:8000";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
 
 const TAG_STYLES = {
   Breakout: "bg-violet-50 text-violet-700 border-violet-200",
