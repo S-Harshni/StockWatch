@@ -136,8 +136,18 @@ cd backend
 python -m venv .venv
 .venv\Scripts\activate        # Windows; use `source .venv/bin/activate` on macOS/Linux
 pip install -r requirements.txt
+```
+
+```
 cp .env.example .env          # then paste in your free Finnhub API key
-uvicorn app.main:app --port 8000
+for getting the key
+STEP 1: Go To https://finnhub.io
+STEP 2: Generate a new API Key and paste it in the .env file inside the backend folder
+or use dad6jbpr01qt1ophov90dad6jbpr01qt1ophov9g as the api key
+```
+
+```
+uvicorn app.main:app --port 8000  #Windows; use `python -m uvicorn app.main:app --port 8000` on macOS/Linux
 ```
 
 **Frontend** (in a second terminal)
