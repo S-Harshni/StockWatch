@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Light theme (default). Values are "R G B" triplets, not hex -- Tailwind's
+   opacity-modifier syntax (bg-brand/40) needs the space-separated form. */
+:root {
+  --color-bg: 243 251 247;
+  --color-card: 255 255 255;
+  --color-card-alt: 247 249 252;
+  --color-line: 229 233 231;
+
+  --color-ink: 29 33 41;
+  --color-ink-soft: 91 101 114;
+  --color-ink-faint: 107 114 128;
+
+  --color-brand: 5 150 105;
+  --color-brand-dark: 4 120 87;
+  --color-brand-light: 236 253 245;
+
+  --color-gold: 202 138 4;
+  --color-gold-dark: 161 98 7;
+  --color-gold-light: 254 243 199;
+}
+
+/* Dark theme -- violet + lime instead of emerald + gold, deep near-black
+   surfaces instead of the warm paper wash. Same token names, different
+   values, so no component classNames need to change to support this. */
+.dark {
+  --color-bg: 10 10 18;
+  --color-card: 20 20 30;
+  --color-card-alt: 27 27 40;
+  --color-line: 40 40 56;
+
+  --color-ink: 240 240 246;
+  --color-ink-soft: 168 168 194;
+  --color-ink-faint: 128 128 156;
+
+  --color-brand: 139 92 246;
+  --color-brand-dark: 196 181 253;
+  --color-brand-light: 36 27 61;
+
+  --color-gold: 163 230 53;
+  --color-gold-dark: 132 204 22;
+  --color-gold-light: 41 51 20;
+}
+
+body {
+  @apply bg-paper text-ink font-sans antialiased overflow-x-hidden;
+  position: relative;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}

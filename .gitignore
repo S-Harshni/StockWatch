@@ -13,9 +13,9 @@ __pycache__/
 venv/
 
 # Local runtime data
-pulsewatch.db
-pulsewatch.db-shm
-pulsewatch.db-wal
+stockwatch.db
+stockwatch.db-shm
+stockwatch.db-wal
 
 # Editor / OS
 .DS_Store
