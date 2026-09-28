@@ -2,6 +2,7 @@
 Every other module imports from here rather than hardcoding a value --
 change a poll interval or a threshold once, not once per file."""
 
+import logging
 import os
 import re
 
@@ -11,10 +12,19 @@ from dotenv import load_dotenv
 load_dotenv()
 
 FINNHUB_API_KEY = os.getenv("FINNHUB_API_KEY")
-if not FINNHUB_API_KEY:
-    raise RuntimeError("FINNHUB_API_KEY not found in environment/.env file")
 
-finnhub_client = finnhub.Client(api_key=FINNHUB_API_KEY)
+# Without a key, run in offline demo mode with simulated market data (app/demo_market.py)
+# instead of refusing to start, so the app can be tried without a Finnhub account.
+DEMO_MODE = not FINNHUB_API_KEY
+if DEMO_MODE:
+    from app.demo_market import DemoFinnhubClient
+
+    logging.getLogger(__name__).warning(
+        "FINNHUB_API_KEY not set: running in DEMO MODE with simulated market data."
+    )
+    finnhub_client = DemoFinnhubClient()
+else:
+    finnhub_client = finnhub.Client(api_key=FINNHUB_API_KEY)
 
 DB_PATH = "stockwatch.db"
 

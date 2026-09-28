@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import WatchlistTable from "./WatchlistTable";
 import AllStocksTable from "./AllStocksTable";
@@ -36,6 +36,15 @@ function TableSkeleton() {
 }
 
 export default function Dashboard({ token, userId, onLogout, theme, toggleTheme }) {
+  // Backend reports demo mode when no Finnhub key is configured (simulated prices).
+  const [demoMode, setDemoMode] = useState(false);
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_API_BASE_URL || "http://localhost:8000"}/health`)
+      .then((res) => res.json())
+      .then((data) => setDemoMode(Boolean(data.demo_mode)))
+      .catch(() => {});
+  }, []);
+
   const store = useWatchlistStore(token, onLogout);
   const universe = useStockUniverse(token, onLogout);
   const { permission, requestPermission, isSupported } = useNotificationPermission();
@@ -118,6 +127,14 @@ export default function Dashboard({ token, userId, onLogout, theme, toggleTheme 
 
           <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5">
             <SyncStatusPill status={store.dataStatus} lastSyncedAt={store.lastSyncedAt} />
+            {demoMode && (
+              <span
+                title="No FINNHUB_API_KEY configured: prices, profiles and news are simulated."
+                className="text-[11px] font-semibold px-2 py-1 rounded-full bg-amber-500/15 text-amber-600 dark:text-amber-400"
+              >
+                Demo data
+              </span>
+            )}
             <NotifierButton
               permission={permission}
               isSupported={isSupported}

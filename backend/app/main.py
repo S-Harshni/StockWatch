@@ -10,7 +10,7 @@ from typing import Optional
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.config import CORS_ORIGINS
+from app.config import CORS_ORIGINS, DEMO_MODE
 from app.database import init_db
 from app.poller import market_watcher_worker
 from app.routes import auth, stocks, watchlist
@@ -43,3 +43,9 @@ app.add_middleware(
 app.include_router(auth.router)
 app.include_router(watchlist.router)
 app.include_router(stocks.router)
+
+
+@app.get("/health")
+def health():
+    """Liveness check; also tells the UI whether prices are simulated (demo mode)."""
+    return {"status": "ok", "demo_mode": DEMO_MODE}

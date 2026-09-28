@@ -66,6 +66,10 @@ Being upfront about this matters for a project judged on more than just the demo
   request-id guard on the watchlist poller so an in-flight stale response can never
   clobber a fresher one.
 
+## Try it without a Finnhub key (demo mode)
+
+If `FINNHUB_API_KEY` is not set, the backend starts in **demo mode**. `backend/app/demo_market.py` then serves simulated quotes, company profiles, peers and news in Finnhub's formats, so the whole app runs offline. The UI shows a **Demo data** badge, and `GET /health` returns `"demo_mode": true`. Set a key in `backend/.env` for live data.
+
 ## Project layout
 
 ```
