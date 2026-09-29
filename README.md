@@ -7,6 +7,8 @@
 
 **A smart market watchlist that tells you what actually changed — not just what the price is.**
 
+🔗 **Live demo:** [stock-watch-one-pi.vercel.app](https://stock-watch-one-pi.vercel.app) (the backend runs on Render's free tier, so the first request after a while can take up to a minute to wake it) · 👤 **Portfolio:** [s-harshni.github.io/S-Harshni](https://s-harshni.github.io/S-Harshni/)
+
 Built for the **CODE 2026** hackathon. Problem statement: build a smart watchlist that
 surfaces what has *meaningfully* changed in a user's tracked stocks since they last
 checked, instead of making them re-scan every ticker themselves. StockWatch is built
