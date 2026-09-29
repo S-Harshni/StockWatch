@@ -1,5 +1,10 @@
 # StockWatch
 
+![React](https://img.shields.io/badge/React-18-61dafb?logo=react&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-5-646cff?logo=vite&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-backend-009688?logo=fastapi&logoColor=white)
+![Finnhub](https://img.shields.io/badge/data-Finnhub-1db954)
+
 **A smart market watchlist that tells you what actually changed — not just what the price is.**
 
 Built for the **CODE 2026** hackathon. Problem statement: build a smart watchlist that
@@ -9,7 +14,13 @@ directly against the gaps in existing watchlist/alert products (Groww included):
 plain price list tells you *what*, but not *why it's worth your attention* or *what's
 different since you looked last*.
 
-<!-- Add a screenshot or short GIF of the dashboard here before submitting. -->
+![All stocks ranked by Attention Score](docs/screenshots/all-stocks.png)
+
+| My watchlist: "since you last checked" | Stock detail: profile, peers, news |
+|---|---|
+| ![Watchlist](docs/screenshots/watchlist.png) | ![Stock detail](docs/screenshots/stock-detail.png) |
+
+*Screenshots taken in offline demo mode (simulated prices; see "Try it without a Finnhub key").*
 
 ## The idea
 
